@@ -1,0 +1,19 @@
+# build
+.PHONY: build
+open: build
+	docker-compose build
+
+# up
+.PHONY: up
+open: up
+	docker-compose up -d
+
+# down
+.PHONY: down
+open: down
+	docker-compose down
+
+# insert testdata
+.PHONY: testdata
+open: testdata
+	docker-compose run --rm backend sh -c "go run /app/command/testdata.go"
